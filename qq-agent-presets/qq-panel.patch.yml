@@ -1,0 +1,11 @@
+# QQ 桥接面板：把「小鲸鱼」加进 DSH 侧边栏，并提供一块整页面板。
+#
+# 这个 bundle 原先只有两个 preset patch（纯数据，没有运行期插件），所以它虽然装进了
+# profile，却从没在 loader 里出现过。加面板之后必须自己插一行 —— id 用包名本身，
+# 和 dsh-pet / dsh-unlag 的写法一致（STORE 上架契约按 entry id 比对包名）。
+#
+# 这一行后面绝不能写行尾注释：商城预检的正则抓不到带注释的 entry ID。
+- insert:
+    - id: qq-agent-presets
+      name: qq-agent-presets
+      config: {}

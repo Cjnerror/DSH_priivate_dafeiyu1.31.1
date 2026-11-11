@@ -1,0 +1,19 @@
+# QQ 桥接的模式设置命名空间（原 qq-mode-console，现已并入本包）。
+#
+# entry 的 **id 必须等于插件注册的设置命名空间名**（`qq-mode`，见 mode.js 的
+# QQMODE_NAMESPACE）。DSH 0.2.x 的 settings 定位用
+# `configEditor.entries().find((row) => row.options.id === ns)` 找可写目标，
+# 再用 `entry.fiber.runtime.Config` 取 schema —— id 与命名空间不同名时，
+# 桥接的「模式写穿 DSH 设置」会永远抛 `No configurable plugin entry "qq-mode"`，
+# 模式只在本地生效并在下一次 DSH 轮询时被覆盖回滚。
+#
+# `name` 用 `qq-agent-presets/mode`（包名 + 子路径）指向本包的 mode.js，
+# 与面板入口 `id: qq-agent-presets`（name: qq-agent-presets → index.js）分开，
+# 这样两个 entry 各载各的模块、各跑各的 apply，互不干扰。
+# 子路径能否被解析取决于 package.json 的 exports["./mode"] —— 它必须指向 mode.js。
+#
+# 这一行后面绝不能写行尾注释：商城预检的正则抓不到带注释的 entry ID。
+- insert:
+    - id: qq-mode
+      name: qq-agent-presets/mode
+      config: {}

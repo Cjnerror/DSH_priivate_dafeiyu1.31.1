@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "QQ Whale (Agent Presets + Mode + Panel)",
+    "description": "Run a QQ alt account as a chat persona inside DeepSeek Harness: two preset generations (single-conversation and group simulation), a tool guard that only allows QQ bridge tools, and a qq-mode settings namespace that decides run mode and owner. Ships a six-section whale panel: life switch and watchdog (auto-restart, wake tuning, quiet hours, lid-close keep-awake), spend and model (today spend, current model, lock default model), run mode, sticker and voice, conversations, personas."
+  }
+}
